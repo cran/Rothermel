@@ -1,15 +1,15 @@
 citHeader("To cite package 'Rothermel' in publications use:")
-year <- "2014"
-vers <- paste("R package version", "1.0")
-citEntry(entry = "Manual",
-         title = "Rothermel fire spread model for R",
+year <- 2014
+vers <- paste("R package version", "1.1")
+citEntry(entry = "Article",
+         title = "An implementation of the Rothermel fire spread model in the R programming language",
          author = personList(as.person("Giorgio Vacchiano"),
                              as.person("Davide Ascoli")),
          year = year,
-         note = vers,
-        url = "https://dl.dropboxusercontent.com/u/9392449/Rothermel_1.0.tar.gz",
+	journal = "Fire Technology",
+        note = "DOI 10.1007/s10694-014-0405-6",
          textVersion =
          paste("Giorgio Vacchiano, Davide Ascoli (",
                 year,
-                "). Rothermel fire spread model for R. ",
-                vers, ".", sep = ""))
+                "). An implementation of the Rothermel fire spread model in the R programming language. ",
+                "Fire Technology. ", "DOI: 10.1007/s10694-014-0405-6", sep = ""))

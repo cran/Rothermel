@@ -18,10 +18,10 @@ a single value, or vector, of observed ROS [m/min].
 a vector, or data frame, of percent moisture on a dry weight basis [percent] for fuel classes 1-hour, 10-hour, 100-hour, live herbs and live woody, respectively (5 values or columns; 0 if fuel class is absent).
 }
   \item{u}{
-a single value, or vector, of midflame windspeed [km/h]
+a single value, or vector, of midflame windspeed [km/h].
 }
   \item{slope}{
-a single value, or vector, of percent site slope [percent]}
+a single value, or vector, of percent site slope [percent].}
 }
 \value{
 If a single observation of rate of spread is analyzed (length of obs =1), a vector of bias values, computed as (predicted - observed ROS) for every standard fire behavior fuel model. If more observations are analyzed (length of obs >1), a data.frame of root mean square error and mean bias computed from observed and predicted ROS using every standard fire behavior fuel model.}

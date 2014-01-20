@@ -197,9 +197,12 @@ function(modeltype,w,s,delta,mx.dead,h,m,u,slope) {
   
   output=list(mf.dead*100,mf.live*100,(mx.live*100)[,1],sigma.tot*3.281,rhob[,1]*16.0184634,beta[,1],rpr[,1],ir.dead[,1]* 0.1893,ir.live[,1]* 0.1893,ir[,1]* 0.1893,as.data.frame(fw)[,1],as.data.frame(fs)[,1],(ir*xi*(1+fw+fs))[,1]* 0.1893,(rhob*eps)[,1]*37.25894580781,r[,1])
   
-  names(output)=c("Characteristic dead fuel moisture [%]","Characteristic live fuel moisture [%]","Live fuel moisture of extiction [%]","Characteristic SAV [m2/m3]","Bulk density [kg/m3]","Packing ratio [dimensionless]","Relative packing ratio [dimensionless]","Dead fuel Reaction intensity [kW/m2]","Live fuel Reaction intensity [kW/m2]","Reaction intensity [kW/m2]","Wind factor [0-100]","Slope factor [0-1]","Heat source [kW/m2]","Heat sink [kJ/m3]","ROS [m/min]")
+  names(output)=c("Characteristic dead fuel moisture [%]","Characteristic live fuel moisture [%]","Live fuel moisture of extinction [%]","Characteristic SAV [m2/m3]","Bulk density [kg/m3]","Packing ratio [dimensionless]","Relative packing ratio [dimensionless]","Dead fuel Reaction intensity [kW/m2]","Live fuel Reaction intensity [kW/m2]","Reaction intensity [kW/m2]","Wind factor [0-100]","Slope factor [0-1]","Heat source [kW/m2]","Heat sink [kJ/m3]","ROS [m/min]")
   
-  return(lapply(output,FUN=round,digits=2))
+  return(c(lapply(output[1:5],FUN=round,digits=2),
+         lapply(output[6],FUN=round,digits=4),
+         lapply(output[7:15],FUN=round,digits=2)))
+
   
   #missing: upper threshold for u > 0.9 ir
   

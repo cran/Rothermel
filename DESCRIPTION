@@ -1,13 +1,14 @@
 Package: Rothermel
 Type: Package
 Title: Rothermel fire spread model for R
-Version: 1.0
+Version: 1.1
 Date: 2014-01-20
 Author: Giorgio Vacchiano, Davide Ascoli
 Maintainer: Giorgio Vacchiano <giorgio.vacchiano@unito.it>
-Description: R build of Rothermel's (1972) model for surface fire rate of spread with some additional utilities (uncertainty propagation, best standard fuel model selection) and sample datasets.
+Description: R build of Rothermel's (1972) model for surface fire rate of spread with some additional utilities (uncertainty propagation, standard fuel model selection, fuel model optimization by genetic algorithm) and sample datasets.
 License: GPL-2
-Packaged: 2014-01-20 15:41:41 UTC; Giorgio
+Depends: R (>= 3.0.0), GA, ftsa
+Packaged: 2014-04-22 21:22:17 UTC; Giorgio
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2014-01-20 16:56:04
+Date/Publication: 2014-04-23 01:57:17

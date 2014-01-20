@@ -56,14 +56,13 @@ Rothermel, R. C. (1972). A mathematical model for fire spread predictions in wil
 Giorgio Vacchiano, Davide Ascoli (DISAFA, University of Torino, Italy)
 }
 \seealso{
-\code{\link{ros}}, \code{\link{SFM_metric}}}
+\code{\link{ros}}, \code{\link{SFM_metric}}, \code{\link{firexp}}}
 \examples{
 data ("firexp")
 varnames <- names (firexp)
 
 # select only one observation and create a numeric vector for function input
 firexp <- as.numeric (firexp [5,])
-
 names (firexp) <- varnames
 
 pred <- rosunc (
@@ -81,11 +80,13 @@ pred <- rosunc (
 
 summary (pred)
 
+# Figure
 hist (pred, 
       xlab = "ROS [m/min]",
       freq = FALSE,
       xlim = c (0, max (pred)),
-      breaks = 20)
+      breaks = 20,
+      main = "")
 lines (density (pred), lty=2, lwd=2)
 abline (v = firexp ["ros"],col = "red")
 text (firexp ["ros"], 

@@ -34,7 +34,7 @@ a value or vector of site slope [percent]
 A list of values or vectors for the following variables:
  [1] Characteristic dead fuel moisture [percent], 
  [2] Characteristic live fuel moisture [percent], 
- [3] Live fuel moisture of extiction [percent], 
+ [3] Live fuel moisture of extinction [percent], 
  [4] Characteristic SAV [m2/m3]
  [5] Bulk density [kg/m3], 
  [6] Packing ratio [dimensionless], 
@@ -63,7 +63,7 @@ Giorgio Vacchiano, Davide Ascoli (DISAFA, University of Torino, Italy)
 \seealso{
 \code{\link{rosunc}}, \code{\link{SFM_metric}}, \code{\link{scenarios}}}
 \examples{
-# Example 1: ROS using vectors of input values 
+# Example 1: Simulation using vectors of input values 
 
 modeltype <- "D"
 w <-c (2, 1, 0.5, 3, 8)
@@ -129,5 +129,56 @@ for (i in 1:length (u)) {
 }
 
 df
+
+# Example 4: prediction and validation of rate of spread 
+# using existing data from a field experiment
+
+library (Rothermel)
+
+# Observed variables
+data (firexp) 
+m <- firexp [, 18:22]
+u <- firexp [, "u"]
+slope <- firexp [, "slope"]
+obs <- firexp [, "ros"]
+
+# Predict ROS using Standard Fuel Models GR5, GS3 and SH7
+data (SFM_metric)
+a = list ( )
+models = which (rownames (SFM_metric) == "GR5" |
+      rownames (SFM_metric) == "GS3" |
+      rownames (SFM_metric) == "SH7")
+for (i in 1 : length (models) ) {
+     modeltype <- SFM_metric [models [i], 1]
+     w <- SFM_metric [models [i], 2:6]
+     s <- SFM_metric [models [i], 7:11]
+     delta <- SFM_metric [models [i], "Fuel_Bed_Depth"]
+     mx.dead <- SFM_metric [models [i], "Mx_dead"]
+     h <- SFM_metric [models [i], 14:18]
+     a [i] <- ros (modeltype, w, s, delta, mx.dead, h,
+        m, u, slope)[15]}
+        
+# Plot
+plot (obs, a [[1]], xlab = "Observed rate of spread (m/min)",
+         ylab = "Predicted rate of spread (m/min)",  col = "red",
+         pch =19, xlim = c (0, 30), cex.lab = 1.1)
+points (obs, a [[2]], pch = 19, col = "green2")
+points (obs, a [[3]], pch = 19, col = "blue2")
+abline (coef = c(0, 1))
+abline (coef = c(0, 0.7),lty = 2); text (13.6, 19.2, "-30 percent")
+abline (coef = c(0, 1.3),lty = 2); text (28.7, 19.2, "+30 percent")
+legend (0, 19.2, c("GR5", "GS3", "SH7"), pch = 19,
+        col = c("red", "green2", "blue2"), title = "Fuel model")
+
+# Inset Residual plot (not run)
+par (fig = c (.57, .98, .07, .55), new = TRUE)
+plot (obs, a[[1]] - obs, xlab= "", ylab= "", col = "red",
+       main= "Residuals", font.main = 1, pch=19, cex=.7)
+points (obs, a [[2]] - obs, pch = 19, cex =.7, col = "green2")
+points (obs, a [[3]] - obs, pch = 19, cex =.7, col = "blue2")
+abline (h = 0)
+par (fig = c (0, 1, 0, 1))
+
 }
+
 \keyword{ model }
