@@ -1,0 +1,16 @@
+cd5241918108b03b3ddc5f781ffd974a *DESCRIPTION
+8b54e5a89fbda3af5e077053d40bec76 *NAMESPACE
+63fcf6ea3dac9f2e67b983dc47093155 *R/bestFM.R
+0acd6049f09767a392167783871a9842 *R/ros.R
+bee5f9791189a702560c69dd0ab760c8 *R/rosunc.R
+66feeccabf4637fd5a4ad88569440183 *data/SFM_metric.rda
+29178913360f3752e7514bfa1743992a *data/firexp.rda
+ac3b4eb411d5b1342eafcacd7e3186fa *data/scenarios.rda
+e2ed1bb925c9941b3d9e1684fdb8913a *inst/CITATION
+72d4271e3129e45448371580ce61735a *man/Rothermel-package.Rd
+ab7711cce0f0a49e840c01a1e9d389c7 *man/SFM_metric.Rd
+c182d49fe71c137432ea82d08f8d6e11 *man/bestFM.Rd
+6aa14b67685d450ad0a101f43a852520 *man/firexp.Rd
+fd7a69ecfdaaacb65d6f515015c23580 *man/ros.Rd
+a9e97b1e7cddb127e7691a60678bb950 *man/rosunc.Rd
+cc0e30f95b3634debb8c041227128e49 *man/scenarios.Rd
