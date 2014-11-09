@@ -1,7 +1,7 @@
-afa1df1bf460a8adeb71003037759c49 *DESCRIPTION
+d6e14486c20388f3bac5468adc57bba2 *DESCRIPTION
 9e596a40cf42619f66a3f037bb957d07 *NAMESPACE
 63fcf6ea3dac9f2e67b983dc47093155 *R/bestFM.R
-47b649abd61d06da99527a570a96c86f *R/gaRoth.R
+b720464e5f732ba30b898f0f8b4249c2 *R/gaRoth.R
 1ba04b40519e6b3dc45aca03da18d587 *R/ros.R
 bee5f9791189a702560c69dd0ab760c8 *R/rosunc.R
 66feeccabf4637fd5a4ad88569440183 *data/SFM_metric.rda
@@ -12,7 +12,7 @@ e9373f425734d26f1ec09ca4d4266720 *man/Rothermel-package.Rd
 ab7711cce0f0a49e840c01a1e9d389c7 *man/SFM_metric.Rd
 f43673ccc1f729fab17b248e09922f0d *man/bestFM.Rd
 6aa14b67685d450ad0a101f43a852520 *man/firexp.Rd
-6823c345e26010454663c61e64b880ce *man/gaRoth.Rd
+6a37435ab96c2a52206fd1b2cd3ba7e7 *man/gaRoth.Rd
 263a02803bc4f221eff99a64488cee5f *man/ros.Rd
 f725537a28d0af61088c4f8055f0f309 *man/rosunc.Rd
 cc0e30f95b3634debb8c041227128e49 *man/scenarios.Rd

@@ -63,6 +63,7 @@ gaRoth (
 }
 \details{
 The function defaults to a real-valued coded GA. 
+Default values for fuel models are currently extracted from the standard Fuel Models table by Anderson (1982) and Scott and Burgan (2005).
 GA optimization is calculated from a vector of predicted vs. observed data; therefore, vectors of two or more values must be entered for observations, wind speed, and slope, and a data frame with 5 columns and two or more lines must be entered for fuel moisture (see \code{\link{ros}}). 
 Since  \code{\link{ga}} defaults to maximizing the fitness function, the opposite of the error metric is computed (i.e., with a negative sign).
 }
@@ -81,20 +82,38 @@ Giorgio Vacchiano, Davide Ascoli (DISAFA, University of Torino, Italy)}
 
 \examples{
 library (Rothermel)
-library (GA)
-library (ftsa)
 
-# Observed variables
+# Observed site variables and ROS
 data (firexp) 
 m <- firexp [, 18:22]
 u <- firexp [, "u"]
 slope <- firexp [, "slope"]
 obs <- firexp [, "ros"]
-modeltype <- "D"
+modeltype <- "S"
 
-# GA optimization using mean absolute percent error ("mape")
+# GA optimization using minimization of Root mean square error ("rmse")
+# Ranges for fuel model parameters after Ascoli et al. (2015)
+
 ga.model <- gaRoth (m=m, u=u, slope=slope, obs=obs, modeltype=modeltype, 
-            method="mape", popSize=20, maxiter=5)
+            method="rmse", popSize=20, maxiter=5,
+            w_1h = c(1.5,7.24),
+            w_10h = c(0,0),
+            w_100h = c(0,0), 
+            w_Live_Herb = c(0,0),
+            w_Live_Woody = c(2.9,10.4),
+            s_1h = c(6640,10036),
+            s_10h = c(0,0),
+            s_100h = c(0,0),
+            s_Live_Herb = c(0,0), 
+            s_Live_Woody = c(8810,10560), 
+            delta = c(19,70),
+            mx.dead = c(25,50),
+            h_1h = c(18719,19919),
+            h_10h = c(0,0),
+            h_100h = c(0,0), 
+            h_Live_Herb = c(0,0), 
+            h_Live_Woody = c(20000,22504)
+            )
 
 summary(ga.model)
 }

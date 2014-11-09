@@ -28,6 +28,7 @@ ga.min = c(w_1h[1], w_10h[1], w_100h[1], w_Live_Herb[1], w_Live_Woody[1], s_1h[1
 ga.max = c(w_1h[2], w_10h[2], w_100h[2], w_Live_Herb[2], w_Live_Woody[2], s_1h[2], s_10h[2], s_100h[2], s_Live_Herb[2], s_Live_Woody[2], delta[2], mx.dead[2], h_1h[2], h_10h[2], h_100h[2], h_Live_Herb[2], h_Live_Woody[2] )
   
 true=obs
+if(length(true) ==1) {stop("More than 1 ROS observation is needed")}
 
 fitness <- function (PAR) -error (forecast=unlist(ros(
   w=PAR[1:5],s=PAR[6:10],delta=PAR[11],mx.dead=PAR[12],h=PAR[13:17],
